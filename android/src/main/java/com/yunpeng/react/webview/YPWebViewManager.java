@@ -35,6 +35,12 @@ public class YPWebViewManager extends ReactWebViewManager {
     public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
       handler.proceed();
     }
+
+	@Override
+	public void onPageFinished(WebView view, String url) {
+	  super.onPageFinished(view, url);
+	  view.clearCache(true);
+	}
   }
 
   @ReactProp(name = "scalesPageToFit")
