@@ -15,7 +15,7 @@ export default class YPWebView extends Component {
         ref={w => this.webview = w}
         {...this.props}
         nativeConfig={{
-          component: RCTYPWebView
+          component: RCTYPWebView,
           props: {
             disableCache: this.prps.disableCache,
           }
