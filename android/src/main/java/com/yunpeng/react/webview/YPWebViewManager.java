@@ -9,6 +9,7 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import android.net.http.SslError;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebSettings;
 import android.webkit.SslErrorHandler;
 import android.content.res.Resources;
 
@@ -35,12 +36,6 @@ public class YPWebViewManager extends ReactWebViewManager {
     public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
       handler.proceed();
     }
-
-	@Override
-	public void onPageFinished(WebView view, String url) {
-	  super.onPageFinished(view, url);
-	  view.clearCache(true);
-	}
   }
 
   @ReactProp(name = "scalesPageToFit")
@@ -48,6 +43,13 @@ public class YPWebViewManager extends ReactWebViewManager {
   public void setScalesPageToFit(WebView view, boolean enabled) {
     view.getSettings().setUseWideViewPort(enabled);
     view.getSettings().setLoadWithOverviewMode(enabled);
+  }
+
+  @ReactProp(name = "disableCache")
+  public void disableCache(WebView view, boolean disabled) {
+	  if(disabled) {
+		  view.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+	  }
   }
 
   @Override
