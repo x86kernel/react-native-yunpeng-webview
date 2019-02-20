@@ -57,7 +57,4 @@ public class YPWebViewManager extends ReactWebViewManager {
     // Do not register default touch emitter and let WebView implementation handle touches
     view.setWebViewClient(new YPWebViewClient());
   }
-
-
-
 }
