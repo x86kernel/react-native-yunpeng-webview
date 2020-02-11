@@ -31,12 +31,7 @@ public class YPWebViewManager extends ReactWebViewManager {
     return REACT_CLASS;
   }
 
-  protected static class YPWebViewClient extends ReactWebViewClient {
-    @Override
-    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-      handler.proceed();
-    }
-  }
+  protected static class YPWebViewClient extends ReactWebViewClient {}
 
   @ReactProp(name = "scalesPageToFit")
   @Override
